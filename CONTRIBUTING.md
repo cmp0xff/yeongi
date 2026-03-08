@@ -1,0 +1,70 @@
+# Contributing to yeongi / 연기 / 緣起
+
+Welcome! We appreciate your interest in contributing to `yeongi`. This project follows strict engineering standards to ensure reliability and maintainability.
+
+## Development Principles
+
+### 1. TDD First (Test-Driven Development)
+We believe that tests are the best documentation and the only way to ensure long-term stability.
+- **Red**: Write a failing test for the new behavior or bug fix first.
+- **Green**: Write the minimum code necessary to make the test pass.
+- **Refactor**: Improve the code while keeping the tests green.
+- **Verification**: No feature is complete without comprehensive test coverage in the `tests/` directory.
+
+### 2. Monorepo Architecture
+Maintain a clean separation between:
+- `libs/core`: Core logic, abstract bot interfaces, and snapshot serialisation.
+- `libs/adapters`: Platform-specific implementations (e.g., Telegram, Feishu).
+- `libs/storage`: Persistence providers for saving messages and media.
+- `apps/`: Deployable bot entry points (e.g., `apps/telegram-echo`).
+
+### 3. Infrastructure (OpenTofu)
+We use OpenTofu (a Terraform fork) for Infrastructure-as-Code.
+- Keep `.tf` files in `infrastructure/tofu/`.
+- Ensure all resources (GCS buckets, Cloud Run services) are managed via IaC.
+
+### 4. Tooling & Environment
+- **Python Manager**: `uv` (workspace mode).
+- **Test Runner**: `pytest`.
+- **Infrastructure**: `opentofu`.
+
+---
+
+## Getting Started
+
+1.  **Environment Setup**: Install `uv`.
+    ```bash
+    uv sync
+    ```
+2.  **Infrastructure Initialization**:
+    ```bash
+    uv run poe tofu-init
+    ```
+3.  **Run Tests**:
+    ```bash
+    uv run poe test
+    ```
+4.  **Linting**:
+    ```bash
+    uv run poe lint
+    ```
+
+---
+
+## AI Agent Guidelines
+
+If you are an AI agent (like Gemini, Claude, or ChatGPT) assisting with this project, please adhere to these specific workflows:
+
+### Phase 1: Research & Reproduction
+- **Never guess**: Use `grep_search` and `read_file` to understand existing patterns before proposing changes.
+- **Reproduce First**: For bug fixes, always write a reproduction script or test case that fails before applying a fix.
+
+### Phase 2: Strategy & Implementation
+- **TDD Workflow**: Propose the test case *before* the implementation.
+- **Surgical Updates**: Use the `replace` tool for targeted edits. Avoid rewriting entire files unless necessary.
+- **Idiomatic Python**: Use modern Python features (3.12+) and leverage `uv` for managing dependencies.
+
+### Phase 3: Validation
+- **Run Tests**: Always execute `pytest` after any change to verify that existing functionality is preserved and new tests pass.
+- **No Regressions**: Ensure that your changes do not break other parts of the monorepo.
+- **Linting**: If available, run linting and type-checking tools to maintain code quality.
