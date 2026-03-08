@@ -10,7 +10,7 @@ A Python-based template for building extensible echo bots (Telegram, Feishu, etc
 
 ## Getting Started
 To use this template, please refer to the following:
-1.  **[Project Plan](PLAN.md)**: Architecture, features, and roadmap.
+1.  **[Roadmap](https://github.com/cmp0xff/yeongi/issues)**: Current progress and future tasks.
 2.  **[Contributing Guidelines](CONTRIBUTING.md)**: Setup instructions, developer principles, and AI workflows.
 
 ## License
