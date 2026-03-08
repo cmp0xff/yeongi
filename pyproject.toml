@@ -30,5 +30,13 @@ version_scheme = "semver"
 version_provider = "pep621"
 update_map_description = true
 
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "A", "C4", "RUF"]
+ignore = []
+
 [tool.uv.workspace]
 members = ["apps/*", "libs/*"]
