@@ -1,0 +1,24 @@
+[project]
+name = "yeongi-root"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "poethepoet>=0.42.1",
+    "pytest>=9.0.2",
+    "ruff>=0.15.5",
+]
+
+[tool.poe.tasks]
+test = "pytest"
+lint = "ruff check ."
+tofu-init = { shell = "cd infrastructure/tofu && tofu init" }
+tofu-plan = { shell = "cd infrastructure/tofu && tofu plan" }
+tofu-apply = { shell = "cd infrastructure/tofu && tofu apply" }
+
+[tool.uv.workspace]
+members = ["apps/*", "libs/*"]
