@@ -17,6 +17,7 @@ Maintain a clean separation between:
 - `libs/adapters`: Platform-specific implementations (e.g., Telegram, Feishu).
 - `libs/storage`: Persistence providers for saving messages and media.
 - `apps/`: Deployable bot entry points (e.g., `apps/telegram-echo`).
+- `infrastructure/tofu`: Infrastructure-as-Code (IaC) using OpenTofu for GCP deployment.
 
 ### 3. Conventional Commits
 We follow the [Conventional Commits](https://www.conventionalcommits.org/) specification for all commit messages. This helps in generating clear changelogs and automating versioning.
@@ -38,9 +39,11 @@ We use OpenTofu (a Terraform fork) for Infrastructure-as-Code.
 - Ensure all resources (GCS buckets, Cloud Run services) are managed via IaC.
 
 ### 5. Tooling & Environment
-- **Python Manager**: `uv` (workspace mode).
+- **Language**: Python 3.12+
+- **Dependency Management**: `uv` (workspace mode).
+- **Bot Framework**: `aiogram` (v3).
 - **Test Runner**: `pytest`.
-- **Infrastructure**: `opentofu`.
+- **Infrastructure**: OpenTofu.
 
 ---
 
