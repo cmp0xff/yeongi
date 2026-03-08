@@ -8,7 +8,9 @@ dependencies = []
 
 [dependency-groups]
 dev = [
+    "commitizen>=4.13.9",
     "poethepoet>=0.42.1",
+    "pre-commit>=4.5.1",
     "pytest>=9.0.2",
     "ruff>=0.15.5",
 ]
@@ -16,9 +18,29 @@ dev = [
 [tool.poe.tasks]
 test = "pytest"
 lint = "ruff check ."
+commit = "cz commit"
 tofu-init = { shell = "cd infrastructure/tofu && tofu init" }
 tofu-plan = { shell = "cd infrastructure/tofu && tofu plan" }
 tofu-apply = { shell = "cd infrastructure/tofu && tofu apply" }
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "v$version"
+version_scheme = "semver"
+version_provider = "pep621"
+update_map_description = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D100", "D101", "D102", "D103", "D104",  # Missing docstrings
+    "D203", "D213",                          # Incompatible docstring rules
+    "INP001",                                # Implicit namespace packages
+]
 
 [tool.uv.workspace]
 members = ["apps/*", "libs/*"]
