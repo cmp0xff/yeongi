@@ -1,13 +1,18 @@
 repos:
-  - repo: https://github.com/compilerla/conventional-pre-commit
-    rev: v4.0.0
+  - repo: local
     hooks:
-      - id: conventional-pre-commit
+      - id: commitizen-check
+        name: commitizen check
+        entry: uv run cz check --commit-msg-file
+        language: system
         stages: [commit-msg]
-        args: []
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.5
-    hooks:
       - id: ruff
-        args: [ --fix ]
+        name: ruff
+        entry: uv run ruff check --fix
+        language: system
+        types: [python]
       - id: ruff-format
+        name: ruff-format
+        entry: uv run ruff format
+        language: system
+        types: [python]

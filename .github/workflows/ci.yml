@@ -24,24 +24,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/ruff-action@v3
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          args: "check"
-      - uses: astral-sh/ruff-action@v3
-        with:
-          args: "format --check"
+          enable-cache: true
+      - name: Install Python
+        run: uv python install
+      - name: Ruff check
+        run: uv run ruff check .
+      - name: Ruff format
+        run: uv run ruff format --check .
 
-  pre-commit:
-    name: Run Pre-commit
+  test:
+    name: Run Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          python-version: '3.12'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pre-commit
-      - name: Run pre-commit
-        run: pre-commit run --all-files
+          enable-cache: true
+      - name: Install Python
+        run: uv python install
+      - name: Run tests
+        run: uv run poe test

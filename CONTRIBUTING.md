@@ -49,6 +49,7 @@ We use OpenTofu (a Terraform fork) for Infrastructure-as-Code.
 1.  **Environment Setup**: Install `uv`.
     ```bash
     uv sync
+    uv run pre-commit install
     uv run pre-commit install --hook-type commit-msg
     ```
 2.  **Infrastructure Initialization**:
