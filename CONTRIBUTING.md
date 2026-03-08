@@ -18,26 +18,12 @@ Maintain a clean separation between:
 - `libs/storage`: Persistence providers for saving messages and media.
 - `apps/`: Deployable bot entry points (e.g., `apps/telegram-echo`).
 
-### 3. Conventional Commits
-We follow the [Conventional Commits](https://www.conventionalcommits.org/) specification for all commit messages. This helps in generating clear changelogs and automating versioning.
-- **feat**: A new feature
-- **fix**: A bug fix
-- **docs**: Documentation only changes
-- **style**: Changes that do not affect the meaning of the code (white-space, formatting, etc)
-- **refactor**: A code change that neither fixes a bug nor adds a feature
-- **perf**: A code change that improves performance
-- **test**: Adding missing tests or correcting existing tests
-- **build**: Changes that affect the build system or external dependencies
-- **ci**: Changes to our CI configuration files and scripts
-- **chore**: Other changes that don't modify src or test files
-- **revert**: Reverts a previous commit
-
-### 4. Infrastructure (OpenTofu)
+### 3. Infrastructure (OpenTofu)
 We use OpenTofu (a Terraform fork) for Infrastructure-as-Code.
 - Keep `.tf` files in `infrastructure/tofu/`.
 - Ensure all resources (GCS buckets, Cloud Run services) are managed via IaC.
 
-### 5. Tooling & Environment
+### 4. Tooling & Environment
 - **Python Manager**: `uv` (workspace mode).
 - **Test Runner**: `pytest`.
 - **Infrastructure**: `opentofu`.
@@ -49,8 +35,6 @@ We use OpenTofu (a Terraform fork) for Infrastructure-as-Code.
 1.  **Environment Setup**: Install `uv`.
     ```bash
     uv sync
-    uv run pre-commit install
-    uv run pre-commit install --hook-type commit-msg
     ```
 2.  **Infrastructure Initialization**:
     ```bash
