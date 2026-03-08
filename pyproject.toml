@@ -35,8 +35,12 @@ line-length = 88
 target-version = "py312"
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "N", "UP", "B", "A", "C4", "RUF"]
-ignore = []
+select = ["ALL"]
+ignore = [
+    "D100", "D101", "D102", "D103", "D104",  # Missing docstrings
+    "D203", "D213",                          # Incompatible docstring rules
+    "INP001",                                # Implicit namespace packages
+]
 
 [tool.uv.workspace]
 members = ["apps/*", "libs/*"]
