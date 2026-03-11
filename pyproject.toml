@@ -9,10 +9,6 @@ dependencies = [
     "yeongi-storage",
 ]
 
-[tool.uv.sources]
-yeongi-core = { workspace = true }
-yeongi-storage = { workspace = true }
-
 [dependency-groups]
 dev = [
     "commitizen>=4.13.9",
