@@ -7,8 +7,7 @@ from .models import Message
 class BotHandler(Protocol):
     """Protocol for handling incoming messages."""
 
-    async def __call__(self, message: Message) -> object:
-        ...
+    async def __call__(self, message: Message) -> object: ...
 
 
 class IBotAdapter(ABC):
@@ -16,7 +15,10 @@ class IBotAdapter(ABC):
 
     @abstractmethod
     async def send_message(
-        self, chat_id: str, text: str, reply_to_message_id: str | None = None,
+        self,
+        chat_id: str,
+        text: str,
+        reply_to_message_id: str | None = None,
     ) -> Message:
         """Send a text message to a chat."""
         ...

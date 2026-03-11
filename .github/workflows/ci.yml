@@ -30,10 +30,12 @@ jobs:
           enable-cache: true
       - name: Install Python
         run: uv python install
+      - name: Sync dependencies
+        run: uv sync
       - name: Ruff check
         run: uv run ruff check .
       - name: Ruff format
-        run: uv run ruff format --check .
+        run: uv run ruff format .
 
   test:
     name: Run Tests
@@ -46,5 +48,7 @@ jobs:
           enable-cache: true
       - name: Install Python
         run: uv python install
+      - name: Sync dependencies
+        run: uv sync
       - name: Run tests
         run: uv run poe test
