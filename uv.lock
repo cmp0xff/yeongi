@@ -713,8 +713,6 @@ dev = [
     { name = "pydantic" },
     { name = "pytest" },
     { name = "ruff" },
-    { name = "yeongi-core" },
-    { name = "yeongi-storage" },
 ]
 
 [package.metadata]
@@ -727,8 +725,6 @@ dev = [
     { name = "pydantic", specifier = ">=2.12.5" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "ruff", specifier = ">=0.15.5" },
-    { name = "yeongi-core", editable = "libs/core" },
-    { name = "yeongi-storage", editable = "libs/storage" },
 ]
 
 [[package]]

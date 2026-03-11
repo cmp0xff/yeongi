@@ -22,8 +22,6 @@ jobs:
   ruff:
     name: Ruff Lint & Format
     runs-on: ubuntu-latest
-    env:
-      UV_PROJECT_ENVIRONMENT: 1
     steps:
       - uses: actions/checkout@v6
       - name: Install uv
@@ -32,18 +30,14 @@ jobs:
           enable-cache: true
       - name: Install Python
         run: uv python install
-      - name: Sync dependencies
-        run: uv sync
       - name: Ruff check
         run: uv run ruff check .
       - name: Ruff format
-        run: uv run ruff format .
+        run: uv run ruff format --check .
 
   test:
     name: Run Tests
     runs-on: ubuntu-latest
-    env:
-      UV_PROJECT_ENVIRONMENT: 1
     steps:
       - uses: actions/checkout@v6
       - name: Install uv
@@ -52,7 +46,7 @@ jobs:
           enable-cache: true
       - name: Install Python
         run: uv python install
-      - name: Sync dependencies
-        run: uv sync
       - name: Run tests
-        run: uv run poe test
+        run: uv run pytest
+        env:
+          PYTHONPATH: libs/core/src:libs/storage/src

@@ -14,13 +14,7 @@ dev = [
     "pydantic>=2.12.5",
     "pytest>=9.0.2",
     "ruff>=0.15.5",
-    "yeongi-core",
-    "yeongi-storage",
 ]
-
-[tool.uv.sources]
-yeongi-core = { workspace = true }
-yeongi-storage = { workspace = true }
 
 [tool.poe.tasks]
 test = "pytest"
