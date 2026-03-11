@@ -1,17 +1,10 @@
 [project]
 name = "yeongi-root"
 version = "0.1.0"
-description = "Add your description here"
+description = "A Python-based template for building extensible echo bots"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
-    "yeongi-core",
-    "yeongi-storage",
-]
-
-[tool.uv.sources]
-yeongi-core = { workspace = true }
-yeongi-storage = { workspace = true }
+dependencies = []
 
 [dependency-groups]
 dev = [
