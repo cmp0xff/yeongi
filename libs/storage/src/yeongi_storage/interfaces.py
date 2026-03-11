@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from typing import Optional
 
 from yeongi_core.models import Message, Snapshot
 
@@ -19,8 +18,10 @@ class IStorage(ABC):
 
     @abstractmethod
     async def get_latest_snapshot(
-        self, user_id: str, chat_id: str
-    ) -> Optional[Snapshot]:
+        self,
+        user_id: str,
+        chat_id: str,
+    ) -> Snapshot | None:
         """Retrieve the most recent snapshot for a user in a chat."""
         ...
 
