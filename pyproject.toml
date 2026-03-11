@@ -9,6 +9,10 @@ dependencies = [
     "yeongi-storage",
 ]
 
+[tool.uv.sources]
+yeongi-core = { workspace = true }
+yeongi-storage = { workspace = true }
+
 [dependency-groups]
 dev = [
     "commitizen>=4.13.9",
@@ -50,9 +54,4 @@ ignore = [
 "tests/*" = ["S101"]
 
 [tool.uv.workspace]
-members = [
-    "apps/telegram-echo",
-    "libs/adapters",
-    "libs/core",
-    "libs/storage",
-]
+members = ["apps/*", "libs/*"]
