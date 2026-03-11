@@ -1,5 +1,5 @@
-from datetime import datetime
-from enum import StrEnum
+from datetime import UTC, datetime
+from enum import StrEnum, auto
 from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -8,20 +8,20 @@ from pydantic import BaseModel, ConfigDict, Field
 class ChatType(StrEnum):
     """Supported chat types."""
 
-    PRIVATE = "private"
-    GROUP = "group"
-    SUPERGROUP = "supergroup"
-    CHANNEL = "channel"
+    PRIVATE = auto()
+    GROUP = auto()
+    SUPERGROUP = auto()
+    CHANNEL = auto()
 
 
 class MediaType(StrEnum):
     """Supported media types."""
 
-    PHOTO = "photo"
-    VIDEO = "video"
-    AUDIO = "audio"
-    VOICE = "voice"
-    DOCUMENT = "document"
+    PHOTO = auto()
+    VIDEO = auto()
+    AUDIO = auto()
+    VOICE = auto()
+    DOCUMENT = auto()
 
 
 class User(BaseModel):
@@ -78,5 +78,5 @@ class Snapshot(BaseModel):
 
     user_id: str
     chat_id: str
-    timestamp: datetime = Field(default_factory=datetime.now)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(UTC))
     state: dict[str, Any] = Field(default_factory=dict)

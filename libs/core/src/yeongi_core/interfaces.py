@@ -21,9 +21,7 @@ class IBotAdapter(ABC):
         reply_to_message_id: str | None = None,
     ) -> Message:
         """Send a text message to a chat."""
-        ...
 
     @abstractmethod
     async def run(self, handler: BotHandler) -> None:
         """Start the bot and listen for events."""
-        ...

@@ -9,12 +9,10 @@ class IStorage(ABC):
     @abstractmethod
     async def save_message(self, message: Message) -> None:
         """Persist a message to the database."""
-        ...
 
     @abstractmethod
     async def save_snapshot(self, snapshot: Snapshot) -> None:
         """Capture and save a bot state snapshot."""
-        ...
 
     @abstractmethod
     async def get_latest_snapshot(
@@ -23,7 +21,6 @@ class IStorage(ABC):
         chat_id: str,
     ) -> Snapshot | None:
         """Retrieve the most recent snapshot for a user in a chat."""
-        ...
 
 
 class IBlobStore(ABC):
@@ -32,9 +29,7 @@ class IBlobStore(ABC):
     @abstractmethod
     async def upload(self, content: bytes, filename: str) -> str:
         """Upload a file and return its storage URI."""
-        ...
 
     @abstractmethod
     async def download(self, uri: str) -> bytes:
         """Download a file's content by its URI."""
-        ...
