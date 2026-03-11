@@ -4,14 +4,15 @@ version = "0.1.0"
 description = "A Python-based template for building extensible echo bots"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pydantic>=2.12.5",
+]
 
 [dependency-groups]
 dev = [
     "commitizen>=4.13.9",
     "poethepoet>=0.42.1",
     "pre-commit>=4.5.1",
-    "pydantic>=2.12.5",
     "pytest>=9.0.2",
     "ruff>=0.15.5",
 ]
@@ -48,3 +49,7 @@ ignore = [
 
 [tool.uv.workspace]
 members = ["apps/*", "libs/*"]
+
+[tool.uv.sources]
+yeongi-core = { workspace = true }
+yeongi-storage = { workspace = true }
