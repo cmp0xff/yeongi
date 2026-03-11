@@ -4,13 +4,21 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "yeongi-core",
+    "yeongi-storage",
+]
+
+[tool.uv.sources]
+yeongi-core = { workspace = true }
+yeongi-storage = { workspace = true }
 
 [dependency-groups]
 dev = [
     "commitizen>=4.13.9",
     "poethepoet>=0.42.1",
     "pre-commit>=4.5.1",
+    "pydantic>=2.12.5",
     "pytest>=9.0.2",
     "ruff>=0.15.5",
 ]
