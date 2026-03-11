@@ -55,8 +55,8 @@ ignore = [
 
 [tool.uv.workspace]
 members = [
-    "apps/telegram-echo",
-    "libs/adapters",
-    "libs/core",
-    "libs/storage",
+    "apps/telegram-echo/",
+    "libs/adapters/",
+    "libs/core/",
+    "libs/storage/",
 ]
