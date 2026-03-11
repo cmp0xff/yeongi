@@ -22,6 +22,8 @@ jobs:
   ruff:
     name: Ruff Lint & Format
     runs-on: ubuntu-latest
+    env:
+      UV_PROJECT_ENVIRONMENT: 1
     steps:
       - uses: actions/checkout@v6
       - name: Install uv
@@ -40,6 +42,8 @@ jobs:
   test:
     name: Run Tests
     runs-on: ubuntu-latest
+    env:
+      UV_PROJECT_ENVIRONMENT: 1
     steps:
       - uses: actions/checkout@v6
       - name: Install uv
