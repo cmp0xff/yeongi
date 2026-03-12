@@ -1,10 +1,12 @@
 [project]
 name = "yeongi-root"
 version = "0.1.0"
-description = "Add your description here"
+description = "A Python-based template for building extensible echo bots"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pydantic>=2.12.5",
+]
 
 [dependency-groups]
 dev = [
@@ -13,6 +15,8 @@ dev = [
     "pre-commit>=4.5.1",
     "pytest>=9.0.2",
     "ruff>=0.15.5",
+    "yeongi-core",
+    "yeongi-storage",
 ]
 
 [tool.poe.tasks]
@@ -45,5 +49,12 @@ ignore = [
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S101"]
 
+[tool.ruff.lint.flake8-pytest-style]
+raises-extend-require-match-for = ["TypeError"]
+
 [tool.uv.workspace]
 members = ["apps/*", "libs/*"]
+
+[tool.uv.sources]
+yeongi-core = { workspace = true }
+yeongi-storage = { workspace = true }

@@ -58,5 +58,5 @@ terraform.rc
 
 # Project Specific
 snapshots/
-storage/
+/storage/
 .env
