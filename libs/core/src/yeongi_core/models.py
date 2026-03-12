@@ -22,6 +22,7 @@ class MediaType(StrEnum):
     AUDIO = auto()
     VOICE = auto()
     DOCUMENT = auto()
+    LOCATION = auto()
 
 
 class User(BaseModel):
@@ -30,7 +31,7 @@ class User(BaseModel):
     model_config = ConfigDict(frozen=True)
 
     id: str
-    is_bot: bool = False
+    is_bot: bool = Field(default=False, description="True if this user is a bot")
     first_name: str
     last_name: str | None = None
     username: str | None = None

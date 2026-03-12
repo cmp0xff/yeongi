@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Protocol
+from typing import Any, Protocol
 
 from .models import Message
 
@@ -7,7 +7,7 @@ from .models import Message
 class BotHandler(Protocol):
     """Protocol for handling incoming messages."""
 
-    async def __call__(self, message: Message) -> object: ...
+    async def __call__(self, message: Message) -> Any: ...  # noqa: ANN401
 
 
 class IBotAdapter(ABC):
